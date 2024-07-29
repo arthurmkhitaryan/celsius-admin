@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_our_team_our_teams",
+  "info": {
+    "displayName": "OurTeam",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ourTeamItem": {
+      "displayName": "ourTeamItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "our-team-item.our-team-item"
+    }
+  }
+}

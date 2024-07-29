@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_our_stores_item_our_stores_items",
+  "info": {
+    "displayName": "OurStoresItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

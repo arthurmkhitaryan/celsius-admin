@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_our_stores_our_stores",
+  "info": {
+    "displayName": "OurStores",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "OurStoresItem": {
+      "displayName": "OurStoresItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "our-stores-item.our-stores-item"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

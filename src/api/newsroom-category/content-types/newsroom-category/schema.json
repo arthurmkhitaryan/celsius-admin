@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "newsroom_categories",
+  "info": {
+    "singularName": "newsroom-category",
+    "pluralName": "newsroom-categories",
+    "displayName": "NewsCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::new.new",
+      "inversedBy": "category"
+    }
+  }
+}
