@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CategoryCategory extends Schema.Component {
+  collectionName: 'components_category_categories';
+  info: {
+    displayName: 'category';
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface OurStoresItemOurStoresItem extends Schema.Component {
   collectionName: 'components_our_stores_item_our_stores_items';
   info: {
@@ -83,6 +95,7 @@ export interface WhoWeAreWhoWeAre extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'category.category': CategoryCategory;
       'our-stores-item.our-stores-item': OurStoresItemOurStoresItem;
       'our-stores.our-stores': OurStoresOurStores;
       'our-team-item.our-team-item': OurTeamItemOurTeamItem;
