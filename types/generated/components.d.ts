@@ -12,6 +12,41 @@ export interface CategoryCategory extends Schema.Component {
   };
 }
 
+export interface FullSpecificationsFullSpecifications extends Schema.Component {
+  collectionName: 'components_full_specifications_full_specifications';
+  info: {
+    displayName: 'full-specifications';
+    description: '';
+  };
+  attributes: {
+    general: Attribute.Component<'general-features.general-features', true>;
+    details: Attribute.Component<'general-details.general-details', true>;
+  };
+}
+
+export interface GeneralDetailsGeneralDetails extends Schema.Component {
+  collectionName: 'components_general_details_general_details';
+  info: {
+    displayName: 'general-details';
+    description: '';
+  };
+  attributes: {
+    key: Attribute.String;
+    value: Attribute.String;
+  };
+}
+
+export interface GeneralFeaturesGeneralFeatures extends Schema.Component {
+  collectionName: 'components_general_features_general_features';
+  info: {
+    displayName: 'general-features';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+  };
+}
+
 export interface OurStoresItemOurStoresItem extends Schema.Component {
   collectionName: 'components_our_stores_item_our_stores_items';
   info: {
@@ -74,6 +109,28 @@ export interface OurTeamOurTeam extends Schema.Component {
   };
 }
 
+export interface PortfolioPortfolio extends Schema.Component {
+  collectionName: 'components_portfolio_portfolios';
+  info: {
+    displayName: 'Portfolio';
+    description: '';
+  };
+  attributes: {
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+  };
+}
+
+export interface ProductFaqProductFaq extends Schema.Component {
+  collectionName: 'components_product_faq_product_faqs';
+  info: {
+    displayName: 'product-faq';
+  };
+  attributes: {
+    key: Attribute.String;
+    value: Attribute.Text;
+  };
+}
+
 export interface WhoWeAreWhoWeAre extends Schema.Component {
   collectionName: 'components_who_we_are_who_we_ares';
   info: {
@@ -96,10 +153,15 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'category.category': CategoryCategory;
+      'full-specifications.full-specifications': FullSpecificationsFullSpecifications;
+      'general-details.general-details': GeneralDetailsGeneralDetails;
+      'general-features.general-features': GeneralFeaturesGeneralFeatures;
       'our-stores-item.our-stores-item': OurStoresItemOurStoresItem;
       'our-stores.our-stores': OurStoresOurStores;
       'our-team-item.our-team-item': OurTeamItemOurTeamItem;
       'our-team.our-team': OurTeamOurTeam;
+      'portfolio.portfolio': PortfolioPortfolio;
+      'product-faq.product-faq': ProductFaqProductFaq;
       'who-we-are.who-we-are': WhoWeAreWhoWeAre;
     }
   }

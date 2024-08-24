@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_full_specifications_full_specifications",
+  "info": {
+    "displayName": "full-specifications",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "general": {
+      "displayName": "general-features",
+      "type": "component",
+      "repeatable": true,
+      "component": "general-features.general-features"
+    },
+    "details": {
+      "displayName": "general-details",
+      "type": "component",
+      "repeatable": true,
+      "component": "general-details.general-details"
+    }
+  }
+}

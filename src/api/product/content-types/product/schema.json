@@ -40,7 +40,23 @@
         }
       }
     },
-    "imageUrl": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "banner": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -55,6 +71,36 @@
           "localized": true
         }
       }
+    },
+    "fullSpecification": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "full-specifications.full-specifications"
+    },
+    "portofolio": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "portfolio.portfolio"
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "product-faq.product-faq"
     }
   }
 }

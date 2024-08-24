@@ -1261,7 +1261,31 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    imageUrl: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fullSpecification: Attribute.Component<'full-specifications.full-specifications'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    portofolio: Attribute.Component<'portfolio.portfolio'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    faqs: Attribute.Component<'product-faq.product-faq', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

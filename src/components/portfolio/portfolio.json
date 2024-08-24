@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_portfolio_portfolios",
+  "info": {
+    "displayName": "Portfolio",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

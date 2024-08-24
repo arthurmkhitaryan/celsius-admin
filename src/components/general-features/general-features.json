@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_general_features_general_features",
+  "info": {
+    "displayName": "general-features",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
