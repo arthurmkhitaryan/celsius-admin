@@ -109,6 +109,17 @@
         }
       },
       "type": "integer"
+    },
+    "productTypes": {
+      "displayName": "product-types",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "product-types.product-types"
     }
   }
 }

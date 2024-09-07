@@ -131,6 +131,17 @@ export interface ProductFaqProductFaq extends Schema.Component {
   };
 }
 
+export interface ProductTypesProductTypes extends Schema.Component {
+  collectionName: 'components_product_types_product_types';
+  info: {
+    displayName: 'product-types';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+  };
+}
+
 export interface WhoWeAreWhoWeAre extends Schema.Component {
   collectionName: 'components_who_we_are_who_we_ares';
   info: {
@@ -162,6 +173,7 @@ declare module '@strapi/types' {
       'our-team.our-team': OurTeamOurTeam;
       'portfolio.portfolio': PortfolioPortfolio;
       'product-faq.product-faq': ProductFaqProductFaq;
+      'product-types.product-types': ProductTypesProductTypes;
       'who-we-are.who-we-are': WhoWeAreWhoWeAre;
     }
   }
