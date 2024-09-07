@@ -82,7 +82,7 @@
       },
       "component": "full-specifications.full-specifications"
     },
-    "portofolio": {
+    "portfolio": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -101,6 +101,14 @@
         }
       },
       "component": "product-faq.product-faq"
+    },
+    "liter": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

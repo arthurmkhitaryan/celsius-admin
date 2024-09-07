@@ -940,12 +940,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    category: Attribute.Component<'category.category', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    products: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -967,6 +966,46 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::category.category'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiContactUsContactUs extends Schema.CollectionType {
+  collectionName: 'contact_uses';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'contact-uses';
+    displayName: 'ContactUs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    companyName: Attribute.String;
+    email: Attribute.String;
+    phoneNumber: Attribute.String;
+    postCode: Attribute.String;
+    address: Attribute.String;
+    employess: Attribute.Integer;
+    comment: Attribute.String;
+    city: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1279,13 +1318,19 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    portofolio: Attribute.Component<'portfolio.portfolio'> &
+    portfolio: Attribute.Component<'portfolio.portfolio'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     faqs: Attribute.Component<'product-faq.product-faq', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    liter: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1336,6 +1381,7 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::career.career': ApiCareerCareer;
       'api::category.category': ApiCategoryCategory;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::customer.customer': ApiCustomerCustomer;
       'api::new.new': ApiNewNew;
       'api::newsroom-category.newsroom-category': ApiNewsroomCategoryNewsroomCategory;

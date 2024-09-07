@@ -1,6 +1,7 @@
-module.exports = {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ru', 'hy'],
-  },
-};
+/**
+ * product service
+ */
+
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreService('api::product.product');
