@@ -120,6 +120,14 @@
         }
       },
       "component": "product-types.product-types"
+    },
+    "partnerPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "decimal"
     }
   }
 }
