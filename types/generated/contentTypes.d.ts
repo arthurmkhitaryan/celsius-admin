@@ -875,6 +875,7 @@ export interface ApiCareerCareer extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    slug: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -945,6 +946,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::product.product'
     >;
+    slug: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1196,6 +1203,12 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    slug: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1241,6 +1254,12 @@ export interface ApiNewsroomCategoryNewsroomCategory
       'manyToMany',
       'api::new.new'
     >;
+    slug: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1343,6 +1362,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     partnerPrice: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
