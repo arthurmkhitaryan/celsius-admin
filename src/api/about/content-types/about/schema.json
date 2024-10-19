@@ -59,6 +59,14 @@
         }
       },
       "component": "who-we-are.who-we-are"
+    },
+    "mainProductName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

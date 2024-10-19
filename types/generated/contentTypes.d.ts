@@ -829,6 +829,12 @@ export interface ApiAboutAbout extends Schema.SingleType {
           localized: true;
         };
       }>;
+    mainProductName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1368,6 +1374,18 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    code: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mainProductName: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
