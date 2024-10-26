@@ -152,6 +152,24 @@
         }
       },
       "type": "string"
+    },
+    "params": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "generalParams": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "general-params.general-params"
     }
   }
 }

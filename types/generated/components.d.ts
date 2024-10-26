@@ -47,6 +47,17 @@ export interface GeneralFeaturesGeneralFeatures extends Schema.Component {
   };
 }
 
+export interface GeneralParamsGeneralParams extends Schema.Component {
+  collectionName: 'components_general_params_general_params';
+  info: {
+    displayName: 'generalParams';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface OurStoresItemOurStoresItem extends Schema.Component {
   collectionName: 'components_our_stores_item_our_stores_items';
   info: {
@@ -167,6 +178,7 @@ declare module '@strapi/types' {
       'full-specifications.full-specifications': FullSpecificationsFullSpecifications;
       'general-details.general-details': GeneralDetailsGeneralDetails;
       'general-features.general-features': GeneralFeaturesGeneralFeatures;
+      'general-params.general-params': GeneralParamsGeneralParams;
       'our-stores-item.our-stores-item': OurStoresItemOurStoresItem;
       'our-stores.our-stores': OurStoresOurStores;
       'our-team-item.our-team-item': OurTeamItemOurTeamItem;
