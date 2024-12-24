@@ -1297,6 +1297,36 @@ export interface ApiNewsroomCategoryNewsroomCategory
   };
 }
 
+export interface ApiOurPartnerOurPartner extends Schema.CollectionType {
+  collectionName: 'our_partners';
+  info: {
+    singularName: 'our-partner';
+    pluralName: 'our-partners';
+    displayName: 'OurPartners';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-partner.our-partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-partner.our-partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -1466,6 +1496,7 @@ declare module '@strapi/types' {
       'api::customer.customer': ApiCustomerCustomer;
       'api::new.new': ApiNewNew;
       'api::newsroom-category.newsroom-category': ApiNewsroomCategoryNewsroomCategory;
+      'api::our-partner.our-partner': ApiOurPartnerOurPartner;
       'api::product.product': ApiProductProduct;
     }
   }
