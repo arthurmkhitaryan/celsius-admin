@@ -1471,6 +1471,39 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiSliderProductSliderProduct extends Schema.SingleType {
+  collectionName: 'slider_products';
+  info: {
+    singularName: 'slider-product';
+    pluralName: 'slider-products';
+    displayName: 'SliderProducts';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sliderOneProductSlug: Attribute.String;
+    sliderTwoProductSlug: Attribute.String;
+    sliderThreeProductSlug: Attribute.String;
+    sliderFourProductSlug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slider-product.slider-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slider-product.slider-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1498,6 +1531,7 @@ declare module '@strapi/types' {
       'api::newsroom-category.newsroom-category': ApiNewsroomCategoryNewsroomCategory;
       'api::our-partner.our-partner': ApiOurPartnerOurPartner;
       'api::product.product': ApiProductProduct;
+      'api::slider-product.slider-product': ApiSliderProductSliderProduct;
     }
   }
 }

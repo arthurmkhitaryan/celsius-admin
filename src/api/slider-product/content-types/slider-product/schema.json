@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "slider_products",
+  "info": {
+    "singularName": "slider-product",
+    "pluralName": "slider-products",
+    "displayName": "SliderProducts"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sliderOneProductSlug": {
+      "type": "string"
+    },
+    "sliderTwoProductSlug": {
+      "type": "string"
+    },
+    "sliderThreeProductSlug": {
+      "type": "string"
+    },
+    "sliderFourProductSlug": {
+      "type": "string"
+    }
+  }
+}
