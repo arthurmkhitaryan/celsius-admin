@@ -989,39 +989,30 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiContactUsContactUs extends Schema.CollectionType {
-  collectionName: 'contact_uses';
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
   info: {
-    singularName: 'contact-us';
-    pluralName: 'contact-uses';
-    displayName: 'ContactUs';
-    description: '';
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    firstName: Attribute.String;
-    lastName: Attribute.String;
-    companyName: Attribute.String;
-    email: Attribute.String;
-    phoneNumber: Attribute.String;
-    postCode: Attribute.String;
-    address: Attribute.String;
-    employess: Attribute.Integer;
-    comment: Attribute.String;
-    city: Attribute.String;
+    name: Attribute.String;
+    email: Attribute.Email;
+    message: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::contact-us.contact-us',
+      'api::contact.contact',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::contact-us.contact-us',
+      'api::contact.contact',
       'oneToOne',
       'admin::user'
     > &
@@ -1327,6 +1318,46 @@ export interface ApiOurPartnerOurPartner extends Schema.CollectionType {
   };
 }
 
+export interface ApiPartnerPartner extends Schema.CollectionType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partners';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    companyName: Attribute.String;
+    email: Attribute.String;
+    phoneNumber: Attribute.String;
+    postCode: Attribute.String;
+    address: Attribute.String;
+    employess: Attribute.Integer;
+    comment: Attribute.Text;
+    city: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -1525,11 +1556,12 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::career.career': ApiCareerCareer;
       'api::category.category': ApiCategoryCategory;
-      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::contact.contact': ApiContactContact;
       'api::customer.customer': ApiCustomerCustomer;
       'api::new.new': ApiNewNew;
       'api::newsroom-category.newsroom-category': ApiNewsroomCategoryNewsroomCategory;
       'api::our-partner.our-partner': ApiOurPartnerOurPartner;
+      'api::partner.partner': ApiPartnerPartner;
       'api::product.product': ApiProductProduct;
       'api::slider-product.slider-product': ApiSliderProductSliderProduct;
     }

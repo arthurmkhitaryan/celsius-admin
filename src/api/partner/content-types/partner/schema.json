@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "contact_uses",
+  "collectionName": "partners",
   "info": {
-    "singularName": "contact-us",
-    "pluralName": "contact-uses",
-    "displayName": "ContactUs",
+    "singularName": "partner",
+    "pluralName": "partners",
+    "displayName": "Partners",
     "description": ""
   },
   "options": {
@@ -37,7 +37,7 @@
       "type": "integer"
     },
     "comment": {
-      "type": "string"
+      "type": "text"
     },
     "city": {
       "type": "string"
