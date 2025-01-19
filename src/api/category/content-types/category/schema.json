@@ -72,11 +72,6 @@
       },
       "type": "text"
     },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product"
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -93,6 +88,12 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "sub_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-category.sub-category",
+      "mappedBy": "category"
     }
   }
 }

@@ -947,11 +947,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    products: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::product.product'
-    >;
     slug: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -965,6 +960,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
+    sub_categories: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::sub-category.sub-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1478,6 +1478,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
+    sub_category: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::sub-category.sub-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1535,6 +1540,69 @@ export interface ApiSliderProductSliderProduct extends Schema.SingleType {
   };
 }
 
+export interface ApiSubCategorySubCategory extends Schema.CollectionType {
+  collectionName: 'sub_categories';
+  info: {
+    singularName: 'sub-category';
+    pluralName: 'sub-categories';
+    displayName: 'SubCategories';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    category: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'manyToOne',
+      'api::category.category'
+    >;
+    products: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'oneToMany',
+      'api::product.product'
+    >;
+    isFavorite: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'oneToMany',
+      'api::sub-category.sub-category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1564,6 +1632,7 @@ declare module '@strapi/types' {
       'api::partner.partner': ApiPartnerPartner;
       'api::product.product': ApiProductProduct;
       'api::slider-product.slider-product': ApiSliderProductSliderProduct;
+      'api::sub-category.sub-category': ApiSubCategorySubCategory;
     }
   }
 }
