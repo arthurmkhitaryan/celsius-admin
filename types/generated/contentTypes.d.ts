@@ -805,12 +805,6 @@ export interface ApiAboutAbout extends Schema.SingleType {
     };
   };
   attributes: {
-    banner: Attribute.Media<'videos'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     ourStores: Attribute.Component<'our-stores.our-stores'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -965,6 +959,13 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::sub-category.sub-category'
     >;
+    mobileImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1318,6 +1319,33 @@ export interface ApiOurPartnerOurPartner extends Schema.CollectionType {
   };
 }
 
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'seo pages';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.Text;
+    metaKeywords: Attribute.Text;
+    metaImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    path: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPartnerPartner extends Schema.CollectionType {
   collectionName: 'partners';
   info: {
@@ -1394,12 +1422,14 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1442,6 +1472,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.Integer &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1482,6 +1513,16 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::product.product',
       'manyToOne',
       'api::sub-category.sub-category'
+    >;
+    product: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::product.product'
+    >;
+    suggestedProducts: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product.product'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1629,6 +1670,7 @@ declare module '@strapi/types' {
       'api::new.new': ApiNewNew;
       'api::newsroom-category.newsroom-category': ApiNewsroomCategoryNewsroomCategory;
       'api::our-partner.our-partner': ApiOurPartnerOurPartner;
+      'api::page.page': ApiPagePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::product.product': ApiProductProduct;
       'api::slider-product.slider-product': ApiSliderProductSliderProduct;

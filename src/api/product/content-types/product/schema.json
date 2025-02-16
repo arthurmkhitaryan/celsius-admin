@@ -43,7 +43,7 @@
     "images": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -59,7 +59,7 @@
     "banner": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -135,7 +135,9 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "unique": false
     },
     "code": {
       "pluginOptions": {
@@ -185,6 +187,18 @@
       "relation": "manyToOne",
       "target": "api::sub-category.sub-category",
       "inversedBy": "products"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "suggestedProducts"
+    },
+    "suggestedProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "product"
     }
   }
 }
