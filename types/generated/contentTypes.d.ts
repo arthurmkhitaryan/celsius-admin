@@ -1330,12 +1330,42 @@ export interface ApiPagePage extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    metaTitle: Attribute.String;
-    metaDescription: Attribute.Text;
-    metaKeywords: Attribute.Text;
-    metaImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    path: Attribute.String;
+    metaTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaKeywords: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    path: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1343,6 +1373,12 @@ export interface ApiPagePage extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::page.page',
+      'oneToMany',
+      'api::page.page'
+    >;
+    locale: Attribute.String;
   };
 }
 
